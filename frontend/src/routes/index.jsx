@@ -7,7 +7,7 @@ export function AppRoutes() {
         <BrowserRouter>
             <Routes>
                 <Route exact path='/' element={<Home />} />
-                <Route path='/program' element={<Program />} /> 
+                <Route path='/program' element={<Program />} />  
             </Routes>
         </BrowserRouter>
     )
