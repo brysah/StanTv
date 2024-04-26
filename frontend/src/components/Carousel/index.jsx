@@ -1,8 +1,8 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from 'swiper/react';
 import { Keyboard } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/keyboard';
-import { Container,CustomSlideSwiper } from './styles';
+import { Container, CustomSlideSwiper, SkeletonSlideSwiper } from './styles';
 
 export function Carousel({ data }) {
     return (
@@ -11,21 +11,31 @@ export function Carousel({ data }) {
                 modules={[Keyboard]}
                 spaceBetween={16}
                 slidesPerView={5.2}
-                keyboard={{ enabled: true }}
+                loop={true}
+                keyboard={{ enabled: true}}
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
             >
 
                 {
-                    data && data.map(data =>
+                    data ? data.map(data =>
                     (
                         <CustomSlideSwiper key={data.id}>
-                            <img 
-                            src={data.image} 
-                            alt=""
-                             /> 
+                            <img
+                                src={data.image}
+                                alt=""
+                            />
                         </CustomSlideSwiper>
-                    ))
+                    )) : (
+                        <>
+                            <SkeletonSlideSwiper />
+                            <SkeletonSlideSwiper />
+                            <SkeletonSlideSwiper />
+                            <SkeletonSlideSwiper />
+                            <SkeletonSlideSwiper />
+                            <SkeletonSlideSwiper /> 
+                        </>
+                    )
                 }
             </Swiper>
         </Container>

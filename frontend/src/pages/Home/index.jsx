@@ -9,7 +9,7 @@ export function Home() {
     useEffect(() => {
         setTimeout(() => {
             setData(fetchData);
-        }, 300);
+        }, 1500);
     }, [])
 
 
