@@ -3,8 +3,10 @@ import { Keyboard } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/keyboard';
 import { Container, CustomSlideSwiper, SkeletonSlideSwiper } from './styles';
+import { useEffect, useState } from 'react';
 
-export function Carousel({ data }) {
+export function Carousel({ data }) { 
+
     return (
         <Container>
             <Swiper
@@ -12,7 +14,7 @@ export function Carousel({ data }) {
                 spaceBetween={16}
                 slidesPerView={5.2}
                 loop={true}
-                keyboard={{ enabled: true}}
+                keyboard={{ enabled: true }}
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
             >
@@ -33,7 +35,7 @@ export function Carousel({ data }) {
                             <SkeletonSlideSwiper />
                             <SkeletonSlideSwiper />
                             <SkeletonSlideSwiper />
-                            <SkeletonSlideSwiper /> 
+                            <SkeletonSlideSwiper />
                         </>
                     )
                 }
