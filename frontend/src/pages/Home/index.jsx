@@ -11,8 +11,7 @@ export function Home() {
     useEffect(() => {
         setTimeout(() => {
             try {
-                setData(fetchData);
-                throw new Error("I'm Evil")
+                setData(fetchData); 
             }
             catch (error) {
                 setErrorMessage('An unknown error occurred.please try again later');
@@ -24,10 +23,12 @@ export function Home() {
 
     return (
         <>
-            <Container>
+            <Container >
                 <Header />
                 {
-                    errorMessage ? <Error>{errorMessage}</Error> : <Carousel data={data} />
+                    errorMessage ? 
+                    <Error>{errorMessage}</Error> :
+                     <Carousel data={data} />
                 }
             </Container>
         </>
