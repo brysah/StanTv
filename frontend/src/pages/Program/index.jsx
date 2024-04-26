@@ -1,3 +1,9 @@
-export function Program(){
-    return<>Program</>
+import { Header } from "../../components/Header"
+
+export function Program() {
+    return (
+        <>
+            <Header/>
+        </>
+    )
 }
