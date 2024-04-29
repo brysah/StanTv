@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const CustomSlideSwiper = styled(SwiperSlide)`
   border-radius: 5px;
   &.swiper-slide-active {
-    border: 3px solid #008feb;
+    border: 3px solid #008feb; 
   }
 `;
 

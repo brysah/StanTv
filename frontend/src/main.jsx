@@ -6,6 +6,6 @@ import { AppRoutes } from './routes'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode> 
       <GlobalStyle />
-      <AppRoutes /> 
+      <AppRoutes/> 
   </React.StrictMode>,
 )

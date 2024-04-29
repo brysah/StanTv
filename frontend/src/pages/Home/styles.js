@@ -10,6 +10,6 @@ export const Error = styled.p`
 export const Container = styled.header`
     max-width: 100rem;
     width: 100%; 
-    margin: 0 auto;
+    margin: 0 auto; 
 `
 

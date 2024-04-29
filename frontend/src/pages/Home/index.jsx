@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Header } from "../../components/Header"
 import { fetchData } from '../../services/data'
 import { Carousel } from "../../components/Carousel";
@@ -6,12 +6,12 @@ import { Error,Container } from "./styles";
 
 export function Home() {
     const [data, setData] = useState();
-    const [errorMessage, setErrorMessage] = useState();
+    const [errorMessage, setErrorMessage] = useState(); 
 
     useEffect(() => {
         setTimeout(() => {
             try {
-                setData(fetchData); 
+                setData(fetchData);  
             }
             catch (error) {
                 setErrorMessage('An unknown error occurred.please try again later');
@@ -23,7 +23,7 @@ export function Home() {
 
     return (
         <>
-            <Container >
+            <Container>
                 <Header />
                 {
                     errorMessage ? 
