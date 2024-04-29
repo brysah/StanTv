@@ -43,7 +43,7 @@ export const SkeletonLarge = styled.div`
   background-color: gray;
 `;
 
-export const Container = styled.header`
+export const Container = styled.div`
   max-width: 100rem;
   width: 100%;
   margin: 0 auto;

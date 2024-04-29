@@ -1,18 +1,29 @@
 import { useParams } from "react-router-dom"
 import { Header } from "../../components/Header"
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchDataById } from '../../services/data'
-import { Details, Description,Container,SkeletonImg,SkeletonDescription,SkeletonBarMedium,SkeletonBarLarge,SkeletonLarge } from './styles'
+import { Details, Description, Container, SkeletonImg, SkeletonDescription, SkeletonBarMedium, SkeletonBarLarge, SkeletonLarge } from './styles'
+import { useNavigate } from 'react-router-dom'
 
 export function Program() {
     const [program, setProgram] = useState();
     const { id } = useParams();
-
+    const containerRef = useRef();
+    const navigate = useNavigate();
+    
+    function handleKey(e){
+        if(e.keyCode === 32){
+            return navigate('/');
+        }
+    }
 
     useEffect(() => {
         setTimeout(() => {
             try {
                 setProgram(fetchDataById(id));
+                if(containerRef.current){ 
+                    containerRef.current.focus();
+                }
             }
             catch (error) {
                 setErrorMessage('An unknown error occurred.please try again later');
@@ -22,7 +33,7 @@ export function Program() {
     }, [])
 
     return (
-        <Container>
+        <Container onKeyDown={handleKey} tabIndex='-1' ref={containerRef}>
             <Header />
             {
                 program ? (
@@ -36,11 +47,11 @@ export function Program() {
                     </Details>
                 ) : (
                     <Details>
-                        <SkeletonImg/>
+                        <SkeletonImg />
                         <SkeletonDescription>
-                            <SkeletonBarMedium/>
-                            <SkeletonBarLarge/>
-                            <SkeletonLarge/>
+                            <SkeletonBarMedium />
+                            <SkeletonBarLarge />
+                            <SkeletonLarge />
                         </SkeletonDescription>
                     </Details>
                 )
