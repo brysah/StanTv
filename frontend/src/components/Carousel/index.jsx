@@ -11,7 +11,7 @@ export function Carousel({ data }) {
     function handleKey(swiper, key) {
         if (key === 13) {
             const { activeIndex, slides } = swiper;
-            const id = slides[activeIndex].id; 
+            const id = slides[activeIndex].id;
             return navigate(`/program/${id}`)
         }
     }
@@ -20,11 +20,31 @@ export function Carousel({ data }) {
         <Container  >
             <Swiper
                 modules={[Keyboard]}
-                spaceBetween={16}
-                slidesPerView={5.2}
+                spaceBetween={16} 
                 loop={true}
                 keyboard={{ enabled: true }}
                 onKeyPress={handleKey}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 2.5, 
+                    },
+                    475: {
+                        slidesPerView: 4, 
+                    },
+                    768: {
+                        slidesPerView: 3.2, 
+                    },
+                    1024: {
+                        slidesPerView: 4.2, 
+                    },
+                    1440: {
+                        slidesPerView: 5.2,
+                        slidePerGroup: 3, 
+                    },
+                    1700: {
+                        slidesPerView: 6, 
+                    },
+                }}
             >
 
                 {
