@@ -11,6 +11,38 @@ export const Details = styled.div`
   }
 `;
 
+export const SkeletonImg = styled.div`
+  width: 30%;
+  height: 100%;
+  background-color: gray;
+`;
+
+export const SkeletonDescription = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+export const SkeletonBarMedium = styled.div`
+  width: 40%;
+  height: 3rem; 
+  background-color: gray;
+`;
+
+export const SkeletonBarLarge = styled.div`
+  width: 70%;
+  height: 3rem; 
+  background-color: gray;
+`;
+
+export const SkeletonLarge = styled.div`
+  width: 100%;
+  height: 5rem; 
+  background-color: gray;
+`;
+
 export const Container = styled.header`
   max-width: 100rem;
   width: 100%;

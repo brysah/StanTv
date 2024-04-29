@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { Header } from "../../components/Header"
 import { useEffect, useState } from "react";
 import { fetchDataById } from '../../services/data'
-import { Details, Description,Container } from './styles'
+import { Details, Description,Container,SkeletonImg,SkeletonDescription,SkeletonBarMedium,SkeletonBarLarge,SkeletonLarge } from './styles'
 
 export function Program() {
     const [program, setProgram] = useState();
@@ -25,7 +25,7 @@ export function Program() {
         <Container>
             <Header />
             {
-                program && (
+                program ? (
                     <Details>
                         <img src={program.image} alt="Program cover" />
                         <Description>
@@ -33,6 +33,15 @@ export function Program() {
                             <p>{program.rating} | {program.year} | {program.genre} | {program.language}</p>
                             <p>{program.description}</p>
                         </Description>
+                    </Details>
+                ) : (
+                    <Details>
+                        <SkeletonImg/>
+                        <SkeletonDescription>
+                            <SkeletonBarMedium/>
+                            <SkeletonBarLarge/>
+                            <SkeletonLarge/>
+                        </SkeletonDescription>
                     </Details>
                 )
             }
