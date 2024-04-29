@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { Header } from "../../components/Header"
 import { fetchData } from '../../services/data'
 import { Carousel } from "../../components/Carousel";

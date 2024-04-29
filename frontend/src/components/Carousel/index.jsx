@@ -3,14 +3,16 @@ import { Keyboard } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/keyboard';
 import { Container, CustomSlideSwiper, SkeletonSlideSwiper } from './styles';
-
+import { useNavigate } from 'react-router-dom'
 
 export function Carousel({ data }) {
+    const navigate = useNavigate();
 
-    function handleKey(swiper, key) { 
+    function handleKey(swiper, key) {
         if (key === 13) {
             const { activeIndex, slides } = swiper;
-            console.log(slides[activeIndex].id);
+            const id = slides[activeIndex].id; 
+            return navigate(`/program/${id}`)
         }
     }
 
